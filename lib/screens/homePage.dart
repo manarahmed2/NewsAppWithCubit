@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_with_cubit/widgets/articleListView.dart';
+import 'package:news_app_with_cubit/widgets/carousel.dart';
 import 'package:news_app_with_cubit/widgets/categoryListView.dart';
-import 'package:news_app_with_cubit/widgets/category_widget.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -24,13 +24,16 @@ class Homepage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
+            child: CarouselNewsWidget(),
+          ),
+          SliverToBoxAdapter(
             child: CatgoryList(),
           ),
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.all(16),
               child: Text(
-                "Genaral News",
+                "General News",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -38,9 +41,8 @@ class Homepage extends StatelessWidget {
               ),
             ),
           ),
-          ArticlesListView(
-            category: 'general',
-          ),
+          // هنا تم حذف category الممرر مباشرة وترك ArticlesListView لتحديد الفئة
+          ArticlesListView(category: 'general'),
         ],
       ),
     );

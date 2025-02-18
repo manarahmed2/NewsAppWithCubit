@@ -6,12 +6,13 @@ import 'package:news_app_with_cubit/network/apiServices.dart';
 class AppCubit extends Cubit<AppState> {
   AppCubit() : super(InitialState());
   Apiservices apiservices = Apiservices();
-  getNews() async {
+
+  getNews({String? category}) async {
     emit(IsLoadingState());
     try {
       var json = await apiservices.get(
           endPoint:
-              "v2/top-headlines?country=us&apiKey=8840025c16be45269b99b02fe8e22baa&category=general");
+              "v2/top-headlines?country=us&apiKey=8840025c16be45269b99b02fe8e22baa&category=$category");
       List<Articlemodel> articles = [];
       for (var i in json["articles"]) {
         articles.add(Articlemodel(

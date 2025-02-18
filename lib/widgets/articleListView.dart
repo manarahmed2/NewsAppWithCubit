@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app_with_cubit/Manager/cubit.dart';
 import 'package:news_app_with_cubit/Manager/state.dart';
-import 'package:news_app_with_cubit/models/articleModel.dart';
 import 'package:news_app_with_cubit/widgets/articleWidget.dart';
 
 class ArticlesListView extends StatelessWidget {
